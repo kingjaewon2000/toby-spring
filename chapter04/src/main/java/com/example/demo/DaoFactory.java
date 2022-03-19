@@ -1,9 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.users.UserDao;
-import com.zaxxer.hikari.util.DriverDataSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.example.demo.users.UserDaoJdbc;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,6 +25,6 @@ public class DaoFactory {
 
     @Bean
     public UserDao userDao() {
-        return new UserDao(dataSource());
+        return new UserDaoJdbc(dataSource());
     }
 }
